@@ -26,11 +26,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-<<<<<<< HEAD
-    return dict(app = app,db = db,User=User,Review=Review,Places=Places,Favorites=Favorites)
-=======
     return dict(app = app,db = db,User=User,Places=Places,Favorites=Favorites,Review=Review)
->>>>>>> bca682c4ae666d195a54af2e49adb2c2d846f3f2
 
 
 if __name__ == '__main__':
