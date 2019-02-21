@@ -8,7 +8,7 @@ def index():
     title = 'vYbe'
     return render_template('index.html',title=title)
 
-@app.route('/places.geojson')
+@main.route('/places.geojson')
 def places_json():
     """Send places data for map layer as Geojson from database.
         Will require some review.

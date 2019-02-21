@@ -10,14 +10,15 @@ def load_user(user_id):
 
 
 class User(UserMixin,db.Model):
-        '''creates instances of user
-        '''
+    '''creates instances of user
+    '''
     __tablename__= 'users'
 
     id  = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
     username = db.Column(db.String(255),unique = True,nullable=False)
     email = db.Column(db.String(255),unique = True,nullable=False)
+    pass_secure = db.Column(db.String(255))
     favorites = db.relationship('Favorites',backref = 'favorite',lazy ="dynamic")
 
     @property
@@ -56,13 +57,13 @@ class Favorites(db.Model):
     __tablename__ = "favorite"
 
     id = db.Column(db.Integer,primary_key=True)
-	place_id = db.Column(db.Integer, db.ForeignKey("places.id"), nullable=False)
-	user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    place_id = db.Column(db.Integer, db.ForeignKey("places.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
 
-	def save_favorite(self):
-		db.session.add(self)
-		db.session.commit()
+    def save_favorite(self):
+        db.session.add(self)
+        db.session.commit()
 
 class Review(db.Model):
 	__tablename__ = 'reviews'
