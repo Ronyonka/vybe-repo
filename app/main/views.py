@@ -56,3 +56,4 @@ def places_json():
 
     return jsonify(places_geojson)
 
+
